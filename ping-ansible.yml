@@ -1,5 +1,7 @@
 ---
-- hosts: all
-gather_facts: false
-tasks:
-- ping:
+ - name: "Get ping response"
+   hosts: all
+   tasks:
+   - action: ping
+     register: hello
+   - debug: msg="{hello.stdout}"
